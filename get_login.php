@@ -14,6 +14,9 @@ if (mysqli_num_rows($r) > 0)
         {
                 $identification[Login] = $row[Login];
                 $identification[Password] = $row[Password];
+		$identification[Surname] = $row[Surname];
+		$identification[Name] = $row[Name];
+		$identification[Middlename] = $row[Middlename];
 		$identification[Block] = $row[Block];
                 $identification[ID_role] = $row[ID_role];
         }
