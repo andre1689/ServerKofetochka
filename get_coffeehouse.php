@@ -5,8 +5,8 @@ if (mysqli_connect_errno()) {
     printf("Не удалось подключиться: %s\n", mysqli_connect_error());
     exit();
 }
-
-$r = mysqli_query($con, "SELECT * FROM CoffeeHouse");
+$Table = $_REQUEST[Table];
+$r = mysqli_query($con, "SELECT * FROM ".$Table);
 if (mysqli_num_rows($r) > 0)
 {
 	$response["coffeehouses"] = array();
