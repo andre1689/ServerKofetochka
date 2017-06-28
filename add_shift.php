@@ -10,16 +10,17 @@ if (mysqli_connect_errno()) {
 $Date_Shift = $_REQUEST[Date_Shift];
 $Time_Shift = $_REQUEST[Time_Shift];
 $ID_CH = $_REQUEST[ID_CH];
+$Login = $_REQUEST[Login];
 
 if (isset($Date_Shift) && isset($Time_Shift) && isset($ID_CH)) {
-	$r = mysqli_query($con, "INSERT INTO `Shift` (`Date_Shift`, `Time_Shift`, `ID_CH`) VALUES ('".$Date_Shift."', '".$Time_Shift."', '".$ID_CH."')");
+	$r = mysqli_query($con, "INSERT INTO `Shift` (`Date_Shift`, `Time_Shift`, `ID_CH`, `Login`) VALUES ('".$Date_Shift."', '".$Time_Shift."', '".$ID_CH."', '".$Login."')");
 	if($r){
 		$shift[Success] = 1;
-		$shift[Message] = "Смена создана.";
+		$shift[Message] = "Смена создана";
 		echo (json_encode($shift));
 	} else {
 		$shift[Success] = 0;
-		$shift[Message] = "Ошибка! Смена не создана.";
+		$shift[Message] = "Ошибка! Смена не создана";
 		echo (json_encode($shift));
 		}
 } else {
