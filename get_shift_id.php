@@ -6,11 +6,12 @@ if (mysqli_connect_errno()) {
     exit();
 }
 $Date_Shift = $_REQUEST[Date_Shift];
-$Time_Shift = $_REQUEST[Time_Shift];
+//$Time_Shift = $_REQUEST[Time_Shift];
 $ID_CH = $_REQUEST[ID_CH];
 $Login = $_REQUEST[Login];
 
-$r = mysqli_query($con, "SELECT ID_Shift FROM `Shift` WHERE (Date_Shift='".$Date_Shift."') AND (Time_Shift='".$Time_Shift."') AND (ID_CH='".$ID_CH."') AND (Login='".$Login."')");
+$r = mysqli_query($con, "SELECT ID_Shift FROM `Shift` WHERE (Date_Shift='".$Date_Shift."') AND (ID_CH='".$ID_CH."') AND (Login='".$Login."')");
+//AND (Time_Shift='".$Time_Shift."')
 if (mysqli_num_rows($r) > 0)
 {
  while($row=mysqli_fetch_array($r))
