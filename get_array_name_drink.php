@@ -6,7 +6,8 @@ if (mysqli_connect_errno()) {
     exit();
 }
 $Table = $_REQUEST[Table];
-$r = mysqli_query($con, "SELECT Name_Drink FROM `".$Table."` GROUP BY Name_Drink");
+$Season = $_REQUEST[Season];
+$r = mysqli_query($con, "SELECT Name_Drink FROM `".$Table."` WHERE Season LIKE '%".$Season."%' GROUP BY Name_Drink");
 if (mysqli_num_rows($r) > 0)
 {
 	$response["names_drink"] = array();
